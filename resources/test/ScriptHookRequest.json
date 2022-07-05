@@ -1,0 +1,20 @@
+{
+    "postProcessorCfg": {
+        "messagebox": {
+            "enabled": 1
+        }
+    },
+    "classInstanceName": "",
+    "functionName": "ScriptHook.Identity",
+    "functionParameters": [
+        {
+            "obj1Val1": 123
+        },
+        {
+            "obj1Val2": 123
+        },
+        123,
+        456,
+        "def"
+    ]
+}
