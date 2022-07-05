@@ -49,7 +49,7 @@ There is an optional [LibraryFunctionException](/Lib\exception\LibraryFunctionEx
 
 ## Remarks
   - Only Unicode (UTF-16) strings are accepted. UTF-8 is Planned.
-  - This script uses OnMessage https://www.autohotkey.com/docs/commands/OnMessage.htm, which has the following remarks:
+  - This script uses [OnMessage](https://www.autohotkey.com/docs/commands/OnMessage.htm), which has the following remarks:
     * Any script that calls OnMessage anywhere is automatically persistent. It is also single-instance unless #SingleInstance has been used to override that.
   - Function parameters will be interpreted as Object or Array if they deserialize as such according to Jxon.
         
@@ -67,5 +67,5 @@ Command line arguments must be escaped for double quotes. See example usage in [
 ScriptHook.ahk can be used a top level script, but is designed to be included by other scripts. The WinTitle parameter for CallLibraryFunction.ahk must be for the top level script (and not neccessarily ScriptHook.ahk)
 ## Examples
 Examples may be found in the below files. First run the persistent script, then call the client script.
-  - [CallLibraryFunctionClientTest.ahk](/test/CallLibraryFunctionClientTest.ahk)
+  - [CallLibraryFunctionClientTest.ahk](/test/CallLibraryFunctionTestClient.ahk)
   - [CallLibraryFunctionTestPersistentScript.ahk](/test/CallLibraryFunctionTestPersistentScript.ahk)
