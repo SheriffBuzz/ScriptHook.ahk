@@ -67,5 +67,5 @@ Command line arguments must be escaped for double quotes. See example usage in [
 ScriptHook.ahk can be used a top level script, but is designed to be included by other scripts. The WinTitle parameter for CallLibraryFunction.ahk must be for the top level script (and not neccessarily ScriptHook.ahk)
 ## Examples
 Examples may be found in the below files. First run the persistent script, then call the client script.
-  - [CallLibraryFunctionClientTest.ahk](/test/CallLibraryFunctionTestClient.ahk)
+  - [CallLibraryFunctionTestClient.ahk](/test/CallLibraryFunctionTestClient.ahk)
   - [CallLibraryFunctionTestPersistentScript.ahk](/test/CallLibraryFunctionTestPersistentScript.ahk)
