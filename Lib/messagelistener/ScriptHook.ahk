@@ -129,9 +129,8 @@ class ScriptHookClass {
             }
         }
 
-        postProcessorRef:= Func("FunctionPostProcessorProcess") ;using funcRef so compile error isnt thrown if file isnt included
-        if (postProcessorRef && IsObject(postProcessorCfg)) {
-            postProcessorRef.call(postProcessorCfg, functionResult, functionName)
+        if (IsObject(functionPostProcessor) && IsObject(postProcessorCfg)) {
+            functionPostProcessor.process(postProcessorCfg, functionResult, functionName)
         }
         return exitCode
     }
