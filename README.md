@@ -1,7 +1,8 @@
 # ScriptHook.ahk
 Defines a listener for SendMessage API, to call functions in a persistent script by other processes
 
-Links
+### Links
+  * [streamdeck-ahk-client](https://github.com/SheriffBuzz/streamdeck-ahk-client)
   * [SendMessage AHK Tutorial](https://www.autohotkey.com/docs/misc/SendMessage.htm)
   * [SendMessage Microsoft Docs](https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-sendmessage)
   * [SendMessage WM_COPYDATA](https://docs.microsoft.com/en-us/windows/win32/dataxchg/wm-copydata)
@@ -12,7 +13,7 @@ This script allows functions of a persistent script to be called by other ahk sc
 
 Next, this script defines an optional dependency **FunctionPostProcessor.ahk**. The goal is to decouple the low level library functions from what the caller wants to do with the result. A User might want to use a function that produces a filepath, but in different scenerios they might want to copy it to the clipboard, or open it directly in file explorer. If they decided they wanted to do something else with the result, they would need to modify the ahk script, or have duplicate function definitions that handled the clipboard or launch of file explorer.
 
-The caller can pass a *postProcessorCfg* that identifies what they want to be done with the output. This lifts the state out of the low level components in the persistent script and up to the client application. This can be very powerful in combination with the streamdeck-ahk-client StreamDeck plugin. The stream deck can store the post processor cfg in the form UI elements in the property inspector. You could have 2 stream deck buttons, one that copies the file path to the clipboard, and one opens it in file explorer.
+The caller can pass a *postProcessorCfg* that identifies what they want to be done with the output. This lifts the state out of the low level components in the persistent script and up to the client application. This can be very powerful in combination with the [streamdeck-ahk-client StreamDeck plugin](https://github.com/SheriffBuzz/streamdeck-ahk-client). The stream deck can store the post processor cfg in the form UI elements in the property inspector. You could have 2 stream deck buttons, one that copies the file path to the clipboard, and one opens it in file explorer.
 
 The main processors are Msgbox, Traytip, Copy to clipboard, Open resource in File explorer, Open url in web browser.
 
@@ -48,7 +49,7 @@ There is an optional [LibraryFunctionException](/Lib\exception\LibraryFunctionEx
 
 ## Remarks
   - Only Unicode (UTF-16) strings are accepted. UTF-8 is Planned.
-  - This script uses OnMessage https://www.autohotkey.com/docs/commands/OnMessage.htm, which has the following remarks:
+  - This script uses [OnMessage](https://www.autohotkey.com/docs/commands/OnMessage.htm), which has the following remarks:
     * Any script that calls OnMessage anywhere is automatically persistent. It is also single-instance unless #SingleInstance has been used to override that.
   - Function parameters will be interpreted as Object or Array if they deserialize as such according to Jxon.
         
@@ -66,5 +67,5 @@ Command line arguments must be escaped for double quotes. See example usage in [
 ScriptHook.ahk can be used a top level script, but is designed to be included by other scripts. The WinTitle parameter for CallLibraryFunction.ahk must be for the top level script (and not neccessarily ScriptHook.ahk)
 ## Examples
 Examples may be found in the below files. First run the persistent script, then call the client script.
-  - [CallLibraryFunctionClientTest.ahk](/test/CallLibraryFunctionClientTest.ahk)
+  - [CallLibraryFunctionClientTest.ahk](/test/CallLibraryFunctionTestClient.ahk)
   - [CallLibraryFunctionTestPersistentScript.ahk](/test/CallLibraryFunctionTestPersistentScript.ahk)
